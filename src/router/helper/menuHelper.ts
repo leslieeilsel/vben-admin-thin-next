@@ -51,9 +51,10 @@ export function transformRouteToMenu(routeModList: AppRouteModule[]) {
         ...(node.meta || {}),
         name: title,
         hideMenu,
+        path: node.path,
       };
     },
   });
   joinParentPath(list);
-  return list;
+  return cloneDeep(list);
 }
