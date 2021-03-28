@@ -42,7 +42,6 @@
   import { getColumns } from './data';
 
   import { cloneDeep } from 'lodash-es';
-  import { isDevMode } from '/@/utils/env';
 
   export default defineComponent({
     name: 'ErrorHandler',
@@ -77,7 +76,7 @@
         }
       );
       const { createMessage } = useMessage();
-      if (isDevMode()) {
+      if (import.meta.env.DEV) {
         createMessage.info(t('sys.errorLog.enableMessage'));
       }
       // 查看详情
